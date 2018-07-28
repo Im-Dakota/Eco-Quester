@@ -48,7 +48,10 @@ public class CustomFrame extends JFrame {
 		initSelectedOptionPanels();
 		
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> parent of fee82fb... Updated personalstats view
 		if(personalStatisticsView.isVisible()) {
 			inputField();
 			inputTextName();
