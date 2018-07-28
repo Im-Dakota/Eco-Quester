@@ -1,6 +1,8 @@
 package eco.quester.tabs;
 
 import java.awt.Color;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 import javax.swing.JPanel;
 
@@ -14,6 +16,7 @@ public class PersonalStatisticsPane extends JPanel {
 	
 	public static CTextField nameTextField;
 	public static CTextArea nameTextArea;
+	public static CButton searchPlayer;
 	
 	public PersonalStatisticsPane() {
 		setBackground(Settings.BACKGROUND_COLOR);
@@ -23,13 +26,27 @@ public class PersonalStatisticsPane extends JPanel {
 		
 		nameTextField = new CTextField();
 		nameTextField.setBackground(new Color(60, 60, 60));
-		nameTextField.setBounds(Settings.FRAME_WIDTH / 2, Settings.FRAME_HEIGHT / 8, 150, 25);
+		nameTextField.setBounds(110, Settings.FRAME_HEIGHT / 16, 150, 25);
 		add(nameTextField);
 
 		nameTextArea = new CTextArea("Player Name");
 		nameTextArea.setBackground(Settings.BACKGROUND_COLOR);
-		nameTextArea.setBounds(Settings.FRAME_WIDTH / 4, Settings.FRAME_HEIGHT / 8, 150, 25);
+		nameTextArea.setBounds(20, Settings.FRAME_HEIGHT / 16, 80, 25);
 		add(nameTextArea);
+		
+		searchPlayer = new CButton("Search");
+		searchPlayer.setBounds(270, Settings.FRAME_HEIGHT / 16, 80, 25);
+		add(searchPlayer);
+		
+		searchPlayer.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				// TODO Auto-generated method stub
+				nameTextArea.setText(nameTextField.getText());
+				nameTextField.setText("");
+			}
+		});
 		
 	}
 
