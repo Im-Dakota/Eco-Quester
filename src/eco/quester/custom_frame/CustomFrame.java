@@ -25,8 +25,6 @@ public class CustomFrame extends JFrame {
 	public static JPanel personalStatisticsView;
 	public static JPanel questsByExpRewardsView;
 	public static JPanel questsByStatisticsView;
-	public static CTextArea nameTextArea;
-	public static CTextField nameTextField;
 	
 	public CustomFrame() {
 		
@@ -46,11 +44,6 @@ public class CustomFrame extends JFrame {
 
 		addLeftListSelectionOptions();
 		initSelectedOptionPanels();
-		
-		if(personalStatisticsView.isVisible()) {
-			inputField();
-			inputTextName();
-		}
 		
 
 		
@@ -101,20 +94,6 @@ public class CustomFrame extends JFrame {
 		}
 		
 		add(leftListPanel);
-	}
-	
-	private void inputField() {
-		nameTextField = new CTextField();
-		nameTextField.setBackground(new Color(60,60,60));
-		nameTextField.setBounds(Settings.FRAME_WIDTH/2, Settings.FRAME_HEIGHT/8, 150,25);
-		add(nameTextField);
-	}
-	
-	private void inputTextName() {
-		nameTextArea = new CTextArea("Player Name");
-		nameTextArea.setBackground(Settings.BACKGROUND_COLOR);
-		nameTextArea.setBounds(Settings.FRAME_WIDTH/4, Settings.FRAME_HEIGHT/8, 150,25);
-		add(nameTextArea);
 	}
 	
 	private void MouseListener() {	//Here down allows the custom frame to be moved like a normal frame
