@@ -25,6 +25,7 @@ public class Settings {
 	public static final String FRAME_TITLE = "Eco Quester";
 	
 	public static Audio audio = new Audio("/data/audio/Autumn_Voyage.mid");
+	public static boolean playAudio = true;
 	
 	public static CustomFrame frame;	//Creates a custom frame object
 	public static void main(String[] args) {
@@ -34,8 +35,8 @@ public class Settings {
 		} catch (ClassNotFoundException | InstantiationException | IllegalAccessException | UnsupportedLookAndFeelException e) {
 			e.printStackTrace();
 		}
-			
-		//Settings.audio.playAudio();
+		if(playAudio)
+			Settings.audio.playAudio();
 		frame = new CustomFrame();
 		
 	}

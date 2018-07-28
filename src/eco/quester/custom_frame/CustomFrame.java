@@ -81,13 +81,15 @@ public class CustomFrame extends JFrame {
 		JPanel leftListPanel = new LeftListPanel();
 		leftListPanel.setBounds(0, 25, 140, Settings.FRAME_HEIGHT - 25);
 		
-		IconLabel music = new IconLabel("\uf205", "Music", "FontAwesome.ttf", 16);
-		music.setBounds(45,  Settings.FRAME_HEIGHT - 50, 24, 18);
-		leftListPanel.add(music);
-		
-		IconLabel musicLabel = new IconLabel("Music", 12);
-		musicLabel.setBounds(5,  Settings.FRAME_HEIGHT - 50, 36, 18);
-		leftListPanel.add(musicLabel);
+		if(Settings.playAudio) {
+			IconLabel music = new IconLabel("\uf205", "Music", "FontAwesome.ttf", 16);
+			music.setBounds(45,  Settings.FRAME_HEIGHT - 50, 24, 18);
+			leftListPanel.add(music);
+			
+			IconLabel musicLabel = new IconLabel("Music", 12);
+			musicLabel.setBounds(5,  Settings.FRAME_HEIGHT - 50, 36, 18);
+			leftListPanel.add(musicLabel);
+		}
 		
 		add(leftListPanel);
 	}

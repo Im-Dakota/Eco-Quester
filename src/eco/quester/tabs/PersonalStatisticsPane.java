@@ -24,7 +24,7 @@ public class PersonalStatisticsPane extends JPanel {
 		nameField.setBounds(200, Settings.FRAME_HEIGHT - 65, 265, 30);
 		add(nameField);
 		
-		CTextArea console = new CTextArea();
+		CTextArea console = new CTextArea("I am so god damn tired.");
 		console.setBackground(Settings.BACKGROUND_COLOR);
 		console.setForeground(Color.WHITE);
 		console.setBounds(5, 5, 460, Settings.FRAME_HEIGHT - 75);
