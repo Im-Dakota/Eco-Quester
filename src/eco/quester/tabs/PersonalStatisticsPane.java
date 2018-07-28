@@ -12,9 +12,16 @@ public class PersonalStatisticsPane extends JPanel {
 		setBackground(Settings.BACKGROUND_COLOR);
 		setLayout(null);
 		
-		CButton button = new CButton("Click Me");
+		CButton button = new CButton("Button A");
 		button.setBounds(5, 5, 190, 30);
 		add(button);
+		button.addActionListener(e -> {
+			System.out.println("Fuck me in the ass, please");
+		});
+		
+		CButton button2 = new CButton("Button B");
+		button2.setBounds(5, 50, 190, 30);
+		add(button2);
 	}
 
 }
