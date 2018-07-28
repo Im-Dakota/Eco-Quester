@@ -35,7 +35,6 @@ public class Settings {
 			e.printStackTrace();
 		}
 			
-		Settings.audio.playAudio();
 		frame = new CustomFrame();
 		
 	}
