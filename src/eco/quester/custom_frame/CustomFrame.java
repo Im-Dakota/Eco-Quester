@@ -2,7 +2,6 @@ package eco.quester.custom_frame;
 import eco.quester.custom_objects.*;
 import eco.quester.settings.*;
 import eco.quester.tabs.LeftListPanel;
-import eco.quester.tabs.PersonalStatisticsPane;
 import eco.quester.tabs.QuestsByExpRewardsPane;
 import eco.quester.tabs.QuestsByStatisticsPane;
 import eco.quester.utils.*;
@@ -20,6 +19,7 @@ import javax.swing.border.LineBorder;
 @SuppressWarnings("serial")
 public class CustomFrame extends JFrame {
 	
+	public static JPanel loginPanel;
 	private static int posX, posY;
 	
 	public static JPanel personalStatisticsView;
@@ -57,13 +57,7 @@ public class CustomFrame extends JFrame {
 		add(frameBar);
 	}
 	
-	private void initSelectedOptionPanels() {
-		personalStatisticsView = new PersonalStatisticsPane();
-//		personalStatisticsView.setBackground(Color.CYAN);
-		personalStatisticsView.setBounds(140, 25, Settings.FRAME_WIDTH - 140, Settings.FRAME_HEIGHT - 25);
-		personalStatisticsView.setVisible(true);
-		add(personalStatisticsView);
-		
+	private void initSelectedOptionPanels() {		
 		questsByExpRewardsView = new QuestsByExpRewardsPane();
 //		questsByExpRewardsView.setBackground(Color.RED);
 		questsByExpRewardsView.setBounds(140, 25, Settings.FRAME_WIDTH - 140, Settings.FRAME_HEIGHT - 25);
@@ -80,16 +74,6 @@ public class CustomFrame extends JFrame {
 	private void addLeftListSelectionOptions() {
 		JPanel leftListPanel = new LeftListPanel();
 		leftListPanel.setBounds(0, 25, 140, Settings.FRAME_HEIGHT - 25);
-		
-		if(Settings.playAudio) {
-			IconLabel music = new IconLabel("\uf205", "Music", "FontAwesome.ttf", 16);
-			music.setBounds(45,  Settings.FRAME_HEIGHT - 50, 24, 18);
-			leftListPanel.add(music);
-			
-			IconLabel musicLabel = new IconLabel("Music", 12);
-			musicLabel.setBounds(5,  Settings.FRAME_HEIGHT - 50, 36, 18);
-			leftListPanel.add(musicLabel);
-		}
 		
 		add(leftListPanel);
 	}

@@ -3,7 +3,6 @@ package eco.quester.listeners;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
-import eco.quester.tabs.PersonalStatisticsPane;
 
 public class ButtonKeyListener implements KeyListener {
 	
@@ -28,7 +27,7 @@ public class ButtonKeyListener implements KeyListener {
 	@Override
 	public void keyReleased(KeyEvent e) {
 		if(e.getKeyCode() == KeyEvent.VK_ENTER && this.actionCommand.equals("Find Player")) {
-			PersonalStatisticsPane.searchPlayer.doClick();
+			
 			//Soo.... this doClick() method is new for me lol, I'm learning :D
 		}
 	}

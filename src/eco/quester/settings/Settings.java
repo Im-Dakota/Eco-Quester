@@ -24,8 +24,10 @@ public class Settings {
 	public static final Color BUTTON_DEFALT_COLOR = new Color(255, 255, 255);
 	public static final String FRAME_TITLE = "Eco Quester";
 	
-	public static Audio audio = new Audio("/data/audio/Autumn_Voyage.mid");
-	public static boolean playAudio = false;
+	public static String playerDisplayName;
+	
+//	public static Audio audio = new Audio("/data/audio/Autumn_Voyage.mid");	//No longer used
+																			//DN 28JUL2018
 	
 	public static CustomFrame frame;	//Creates a custom frame object
 	public static void main(String[] args) {
@@ -35,8 +37,9 @@ public class Settings {
 		} catch (ClassNotFoundException | InstantiationException | IllegalAccessException | UnsupportedLookAndFeelException e) {
 			e.printStackTrace();
 		}
-		if(playAudio)
-			Settings.audio.playAudio();
+		
+		//TODO 			THIS IS ONLY TEMP CODE - A REMINDER
+		Settings.playerDisplayName = "Code Not Complete#";
 		frame = new CustomFrame();
 		
 	}

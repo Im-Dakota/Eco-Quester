@@ -40,7 +40,7 @@ public class CustomFrameTitleBar extends JPanel {
 			Settings.frame.setState(JFrame.ICONIFIED);
 		});
 		
-		title = new JLabel(Settings.FRAME_TITLE);
+		title = new JLabel(Settings.FRAME_TITLE + " - " + Settings.playerDisplayName);
 		title.setForeground(Color.WHITE);
 		title.setHorizontalAlignment(SwingConstants.CENTER);
 		Utils.setFont(title, "OpenSans-Regular.ttf", 18);

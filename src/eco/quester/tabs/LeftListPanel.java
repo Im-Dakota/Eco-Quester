@@ -16,7 +16,6 @@ import eco.quester.utils.Utils;
 @SuppressWarnings("serial")
 public class LeftListPanel extends JPanel {
 	
-	private JPanel personalStatsPanel;
 	private JPanel questsByExpPanel;
 	private JPanel questsByStatsPanel;
 	
@@ -24,26 +23,8 @@ public class LeftListPanel extends JPanel {
 		setBackground(Settings.BACKGROUND_COLOR);
 		setLayout(null);
 		
-		addPersonalStatsTab(0);
-		addQuestsByExpRewardsTab(50);
-		addQuestsByStatsTab(100);
-	}
-
-	private void addPersonalStatsTab(int y) {
-		personalStatsPanel = new JPanel();
-		personalStatsPanel.setBackground(Settings.BACKGROUND_COLOR.brighter());
-		personalStatsPanel.setBounds(0, y, 140, 50);
-		personalStatsPanel.setLayout(new GridBagLayout());
-		personalStatsPanel.setBorder(BorderFactory.createEmptyBorder(2, 2, 2, 2));
-		personalStatsPanel.setName("personalStatsPanel");
-		CustomMouseListener(personalStatsPanel);
-		
-		JLabel personalStatsText = new JLabel("<html><center>Personal<br>Statistics</center></html>");
-		personalStatsText.setForeground(Settings.PRIMARY_COLOR);
-		Utils.setFont(personalStatsText, "Neon.ttf", 16);
-		personalStatsPanel.add(personalStatsText);
-		
-		add(personalStatsPanel);
+		addQuestsByExpRewardsTab(0);
+		addQuestsByStatsTab(50);
 	}
 
 	private void addQuestsByExpRewardsTab(int y) {
@@ -85,23 +66,15 @@ public class LeftListPanel extends JPanel {
 
 			@Override
 			public void mouseReleased(MouseEvent e) {
-				personalStatsPanel.setBackground(Settings.BACKGROUND_COLOR);
 				questsByExpPanel.setBackground(Settings.BACKGROUND_COLOR);
 				questsByStatsPanel.setBackground(Settings.BACKGROUND_COLOR);
 				panel.setBackground(Settings.BACKGROUND_COLOR.brighter());
 				switch(panel.getName()) {
-				case "personalStatsPanel":
-					CustomFrame.personalStatisticsView.setVisible(true);
-					CustomFrame.questsByExpRewardsView.setVisible(false);
-					CustomFrame.questsByStatisticsView.setVisible(false);
-					break;
 				case "questsByExpPanel":
-					CustomFrame.personalStatisticsView.setVisible(false);
 					CustomFrame.questsByExpRewardsView.setVisible(true);
 					CustomFrame.questsByStatisticsView.setVisible(false);
 					break;
 				case "questsByStatsPanel":
-					CustomFrame.personalStatisticsView.setVisible(false);
 					CustomFrame.questsByExpRewardsView.setVisible(false);
 					CustomFrame.questsByStatisticsView.setVisible(true);
 					break;

@@ -148,16 +148,7 @@ public class IconLabel extends JLabel implements MouseListener {
 	public void mouseReleased(MouseEvent e) {
 		switch(this.action) {
 		
-		case "Music":
-			Settings.audio.stopAudio();
-			this.setText("\uf204");
-			this.action = "Play Music";
-			break;
-		case "Play Music":
-			this.setText("\uf205");
-			this.action = "Music";
-			Settings.audio.playAudio();
-			break;
+		
 		
 		}
 	}
