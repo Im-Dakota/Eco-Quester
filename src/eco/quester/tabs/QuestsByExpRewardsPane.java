@@ -11,6 +11,8 @@ public class QuestsByExpRewardsPane extends JPanel {
 		setBackground(Settings.BACKGROUND_COLOR);
 		setLayout(null);
 		
+		//Code here will display when Quests by Exp Rewards is selected
+		
 	}
 
 }

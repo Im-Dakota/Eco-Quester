@@ -11,6 +11,8 @@ public class QuestsByStatisticsPane extends JPanel {
 		setBackground(Settings.BACKGROUND_COLOR);
 		setLayout(null);
 		
+		//Code here will display when Quests by Statitistics is selected
+		
 	}
 
 }
