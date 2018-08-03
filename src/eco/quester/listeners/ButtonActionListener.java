@@ -5,8 +5,8 @@ import java.awt.event.ActionListener;
 
 import javax.swing.JOptionPane;
 
+import eco.quester.custom_frame.CustomFrame;
 import eco.quester.settings.Settings;
-import eco.quester.tabs.PersonalStatisticsPane;
 
 public class ButtonActionListener implements ActionListener {
 
@@ -14,8 +14,8 @@ public class ButtonActionListener implements ActionListener {
 	public void actionPerformed(ActionEvent e) {
 		switch(e.getActionCommand()) {
 		
-		case "Find Player":
-			JOptionPane.showMessageDialog(Settings.frame, "User: " + PersonalStatisticsPane.nameTextField.getText(), "Player Lookup", JOptionPane.INFORMATION_MESSAGE);
+		case "Apply Filter":
+			CustomFrame.statusBar.setText("Applying Filter...");
 			break;
 		
 		}

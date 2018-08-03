@@ -30,11 +30,16 @@ public class Settings {
 	public static CustomFrame frame;	//Creates a custom frame object
 	public static void main(String[] args) {
 		
+		
+		UIManager.put("Menu.selectionBackground", new Color(60, 60, 60).brighter());
+		UIManager.put("Menu.selectionForeground", Color.WHITE);
 		try {	//This line is especially important on mac because it allows it to look like the windows version
 			UIManager.setLookAndFeel(UIManager.getCrossPlatformLookAndFeelClassName());
 		} catch (ClassNotFoundException | InstantiationException | IllegalAccessException | UnsupportedLookAndFeelException e) {
 			e.printStackTrace();
 		}
+		
+		
 		if(playAudio)
 			Settings.audio.playAudio();
 		frame = new CustomFrame();

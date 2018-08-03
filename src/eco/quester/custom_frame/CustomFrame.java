@@ -1,19 +1,20 @@
 package eco.quester.custom_frame;
 import eco.quester.custom_objects.*;
+import eco.quester.listeners.ButtonActionListener;
 import eco.quester.settings.*;
-import eco.quester.tabs.LeftListPanel;
-import eco.quester.tabs.PersonalStatisticsPane;
-import eco.quester.tabs.QuestsByExpRewardsPane;
-import eco.quester.tabs.QuestsByStatisticsPane;
 import eco.quester.utils.*;
 
+import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Rectangle;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseMotionAdapter;
 
+import javax.swing.BorderFactory;
+import javax.swing.Box;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.border.LineBorder;
 
@@ -22,9 +23,10 @@ public class CustomFrame extends JFrame {
 	
 	private static int posX, posY;
 	
-	public static JPanel personalStatisticsView;
-	public static JPanel questsByExpRewardsView;
-	public static JPanel questsByStatisticsView;
+	private JPanel centerPanel;
+	public static JPanel mainPanel;
+	public static JLabel statusBar;
+	public static CMenuBar menuBar;
 	
 	public CustomFrame() {
 		
@@ -42,8 +44,8 @@ public class CustomFrame extends JFrame {
 		getRootPane().setBorder(new LineBorder(Color.BLACK));
 		getContentPane().setBackground(Settings.BACKGROUND_COLOR);	//Up to here is some standards on the frame
 		
-		addLeftListSelectionOptions();
-		initSelectedOptionPanels();
+		addJMenuBar();
+		addStatusBar();
 
 		//This is at the end so the frame can appear first, then add everything, then update itself
 		//This is so people don't think the program hangs up
@@ -52,46 +54,108 @@ public class CustomFrame extends JFrame {
 		
 	}
 
+	private void addStatusBar() {
+		statusBar = new JLabel("Ready");
+		statusBar.setForeground(Settings.PRIMARY_COLOR);
+		statusBar.setBorder(BorderFactory.createEtchedBorder(Settings.BACKGROUND_COLOR, Color.WHITE));
+		
+		centerPanel.add(statusBar, BorderLayout.SOUTH);
+	}
+	
+	private void addJMenuBar() {
+		menuBar = new CMenuBar();
+		addJMenus(menuBar);
+		
+		menuBar.add(Box.createHorizontalGlue());
+		CButton applyFilter = new CButton("Apply Filter");
+		applyFilter.addActionListener(new ButtonActionListener());
+		menuBar.add(applyFilter);
+		
+		
+		centerPanel.add(menuBar, BorderLayout.NORTH);
+	}
+
+	private void addJMenus(CMenuBar menuBar) {
+		CMenu freeSkills = new CMenu("Free Skills");
+		initFreeSkills(freeSkills);
+		menuBar.add(freeSkills);
+		
+		CMenu paidSkills = new CMenu("Paid Skills");
+		//initPaidSkills(paidSkills);	//TODO
+		menuBar.add(paidSkills);
+		
+		CMenu questDifficulty = new CMenu("Quest Difficulty");
+		//initQuestDifficulty(questDifficulty);	//TODO
+		menuBar.add(questDifficulty);
+	}
+
+	private void initFreeSkills(CMenu menu) {
+		CCheckBoxMenuItem attackSk = new CCheckBoxMenuItem("Attack");
+		menu.add(attackSk);
+		
+		CCheckBoxMenuItem strengthSk = new CCheckBoxMenuItem("Strength");
+		menu.add(strengthSk);
+		
+		CCheckBoxMenuItem defenceSk = new CCheckBoxMenuItem("Defence");
+		menu.add(defenceSk);
+		
+		CCheckBoxMenuItem rangeSk = new CCheckBoxMenuItem("Range");
+		menu.add(rangeSk);
+		
+		CCheckBoxMenuItem prayerSk = new CCheckBoxMenuItem("Prayer");
+		menu.add(prayerSk);
+		
+		CCheckBoxMenuItem magicSk = new CCheckBoxMenuItem("Magic");
+		menu.add(magicSk);
+		
+		CCheckBoxMenuItem runecraftingSk = new CCheckBoxMenuItem("Runecrafting");
+		menu.add(runecraftingSk);
+		
+		CCheckBoxMenuItem dungeoneeringSk = new CCheckBoxMenuItem("Dungeoneering");
+		menu.add(dungeoneeringSk);
+		
+		CCheckBoxMenuItem constitutionSk = new CCheckBoxMenuItem("Constitution");
+		menu.add(constitutionSk);
+		
+		CCheckBoxMenuItem craftingSk = new CCheckBoxMenuItem("Crafting");
+		menu.add(craftingSk);
+		
+		CCheckBoxMenuItem fletchingSk = new CCheckBoxMenuItem("Fletching");
+		menu.add(fletchingSk);
+		
+		CCheckBoxMenuItem miningSk = new CCheckBoxMenuItem("Mining");
+		menu.add(miningSk);
+		
+		CCheckBoxMenuItem smithingSk = new CCheckBoxMenuItem("Smithing");
+		menu.add(smithingSk);
+		
+		CCheckBoxMenuItem fishingSk = new CCheckBoxMenuItem("Fishing");
+		menu.add(fishingSk);
+		
+		CCheckBoxMenuItem cookingSk = new CCheckBoxMenuItem("Cooking");
+		menu.add(cookingSk);
+		
+		CCheckBoxMenuItem firemakingSk = new CCheckBoxMenuItem("Firemaking");
+		menu.add(firemakingSk);
+		
+		CCheckBoxMenuItem woodcuttingSk = new CCheckBoxMenuItem("Woodcutting");
+		menu.add(woodcuttingSk);
+	}
+
 	private void TitleBar() {
 		CustomFrameTitleBar frameBar = new CustomFrameTitleBar();	//Creates a returns a custom title bar object
 		add(frameBar);
-	}
-	
-	private void initSelectedOptionPanels() {
-		personalStatisticsView = new PersonalStatisticsPane();
-//		personalStatisticsView.setBackground(Color.CYAN);
-		personalStatisticsView.setBounds(140, 25, Settings.FRAME_WIDTH - 140, Settings.FRAME_HEIGHT - 25);
-		personalStatisticsView.setVisible(true);
-		add(personalStatisticsView);
 		
-		questsByExpRewardsView = new QuestsByExpRewardsPane();
-//		questsByExpRewardsView.setBackground(Color.RED);
-		questsByExpRewardsView.setBounds(140, 25, Settings.FRAME_WIDTH - 140, Settings.FRAME_HEIGHT - 25);
-		questsByExpRewardsView.setVisible(false);
-		add(questsByExpRewardsView);
+		centerPanel = new JPanel();
+		centerPanel.setBounds(0, 25, Settings.FRAME_WIDTH, Settings.FRAME_HEIGHT - 25);
+		centerPanel.setBackground(Settings.BACKGROUND_COLOR);
+		centerPanel.setLayout(new BorderLayout());
+		add(centerPanel);
 		
-		questsByStatisticsView = new QuestsByStatisticsPane();
-//		questsByStatisticsView.setBackground(Color.MAGENTA);
-		questsByStatisticsView.setBounds(140, 25, Settings.FRAME_WIDTH - 140, Settings.FRAME_HEIGHT - 25);
-		questsByStatisticsView.setVisible(false);
-		add(questsByStatisticsView);
-	}
-	
-	private void addLeftListSelectionOptions() {
-		JPanel leftListPanel = new LeftListPanel();
-		leftListPanel.setBounds(0, 25, 140, Settings.FRAME_HEIGHT - 25);
-		
-		if(Settings.playAudio) {
-			IconLabel music = new IconLabel("\uf205", "Music", "FontAwesome.ttf", 16);
-			music.setBounds(45,  Settings.FRAME_HEIGHT - 50, 24, 18);
-			leftListPanel.add(music);
-			
-			IconLabel musicLabel = new IconLabel("Music", 12);
-			musicLabel.setBounds(5,  Settings.FRAME_HEIGHT - 50, 36, 18);
-			leftListPanel.add(musicLabel);
-		}
-		
-		add(leftListPanel);
+		mainPanel = new JPanel();
+		mainPanel.setLayout(null); //Might change
+		mainPanel.setBackground(Settings.BACKGROUND_COLOR);
+		centerPanel.add(mainPanel, BorderLayout.CENTER);
 	}
 
 	
