@@ -5,8 +5,8 @@ import eco.quester.custom_objects.CMenu;
 import eco.quester.custom_objects.CMenuBar;
 
 public class MemberSkills {
-
-	public static void initMemberSkills(CMenuBar menuBar) {
+	
+public static void initMemberSkills(CMenuBar menuBar) {
 		
 		CMenu memberSkillsMenu = new CMenu("Member Skills");
 		

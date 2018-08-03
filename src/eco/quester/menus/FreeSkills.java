@@ -6,7 +6,7 @@ import eco.quester.custom_objects.CMenuBar;
 
 public class FreeSkills {
 	
-	public static void initFreeSkills(CMenuBar menuBar) {
+public static void initFreeSkills(CMenuBar menuBar) {
 		
 		CMenu freeSkillsMenu = new CMenu("Free Skills");
 		

@@ -2,6 +2,7 @@ package eco.quester.custom_frame;
 import eco.quester.custom_objects.*;
 import eco.quester.listeners.ButtonActionListener;
 import eco.quester.menus.Difficulty;
+import eco.quester.menus.ExpRewards;
 import eco.quester.menus.FreeSkills;
 import eco.quester.menus.Length;
 import eco.quester.menus.MemberSkills;
@@ -69,10 +70,11 @@ public class CustomFrame extends JFrame {
 	private void addJMenuBar() {
 		menuBar = new CMenuBar();
 		
-		FreeSkills.initFreeSkills(menuBar);
-		MemberSkills.initMemberSkills(menuBar);
+//		FreeSkills.initFreeSkills(menuBar);
+//		MemberSkills.initMemberSkills(menuBar);
 		Difficulty.initQuestDifficulties(menuBar);
 		Length.initQuestLength(menuBar);
+		ExpRewards.initQuestRewards(menuBar);
 		
 		menuBar.add(Box.createHorizontalGlue());
 		CButton applyFilter = new CButton("Apply Filter");
