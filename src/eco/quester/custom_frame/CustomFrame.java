@@ -1,6 +1,10 @@
 package eco.quester.custom_frame;
 import eco.quester.custom_objects.*;
 import eco.quester.listeners.ButtonActionListener;
+import eco.quester.menus.Difficulty;
+import eco.quester.menus.FreeSkills;
+import eco.quester.menus.Length;
+import eco.quester.menus.MemberSkills;
 import eco.quester.settings.*;
 import eco.quester.utils.*;
 
@@ -64,7 +68,11 @@ public class CustomFrame extends JFrame {
 	
 	private void addJMenuBar() {
 		menuBar = new CMenuBar();
-		addJMenus(menuBar);
+		
+		FreeSkills.initFreeSkills(menuBar);
+		MemberSkills.initMemberSkills(menuBar);
+		Difficulty.initQuestDifficulties(menuBar);
+		Length.initQuestLength(menuBar);
 		
 		menuBar.add(Box.createHorizontalGlue());
 		CButton applyFilter = new CButton("Apply Filter");
@@ -73,73 +81,6 @@ public class CustomFrame extends JFrame {
 		
 		
 		centerPanel.add(menuBar, BorderLayout.NORTH);
-	}
-
-	private void addJMenus(CMenuBar menuBar) {
-		CMenu freeSkills = new CMenu("Free Skills");
-		initFreeSkills(freeSkills);
-		menuBar.add(freeSkills);
-		
-		CMenu paidSkills = new CMenu("Paid Skills");
-		//initPaidSkills(paidSkills);	//TODO
-		menuBar.add(paidSkills);
-		
-		CMenu questDifficulty = new CMenu("Quest Difficulty");
-		//initQuestDifficulty(questDifficulty);	//TODO
-		menuBar.add(questDifficulty);
-	}
-
-	private void initFreeSkills(CMenu menu) {
-		CCheckBoxMenuItem attackSk = new CCheckBoxMenuItem("Attack");
-		menu.add(attackSk);
-		
-		CCheckBoxMenuItem strengthSk = new CCheckBoxMenuItem("Strength");
-		menu.add(strengthSk);
-		
-		CCheckBoxMenuItem defenceSk = new CCheckBoxMenuItem("Defence");
-		menu.add(defenceSk);
-		
-		CCheckBoxMenuItem rangeSk = new CCheckBoxMenuItem("Range");
-		menu.add(rangeSk);
-		
-		CCheckBoxMenuItem prayerSk = new CCheckBoxMenuItem("Prayer");
-		menu.add(prayerSk);
-		
-		CCheckBoxMenuItem magicSk = new CCheckBoxMenuItem("Magic");
-		menu.add(magicSk);
-		
-		CCheckBoxMenuItem runecraftingSk = new CCheckBoxMenuItem("Runecrafting");
-		menu.add(runecraftingSk);
-		
-		CCheckBoxMenuItem dungeoneeringSk = new CCheckBoxMenuItem("Dungeoneering");
-		menu.add(dungeoneeringSk);
-		
-		CCheckBoxMenuItem constitutionSk = new CCheckBoxMenuItem("Constitution");
-		menu.add(constitutionSk);
-		
-		CCheckBoxMenuItem craftingSk = new CCheckBoxMenuItem("Crafting");
-		menu.add(craftingSk);
-		
-		CCheckBoxMenuItem fletchingSk = new CCheckBoxMenuItem("Fletching");
-		menu.add(fletchingSk);
-		
-		CCheckBoxMenuItem miningSk = new CCheckBoxMenuItem("Mining");
-		menu.add(miningSk);
-		
-		CCheckBoxMenuItem smithingSk = new CCheckBoxMenuItem("Smithing");
-		menu.add(smithingSk);
-		
-		CCheckBoxMenuItem fishingSk = new CCheckBoxMenuItem("Fishing");
-		menu.add(fishingSk);
-		
-		CCheckBoxMenuItem cookingSk = new CCheckBoxMenuItem("Cooking");
-		menu.add(cookingSk);
-		
-		CCheckBoxMenuItem firemakingSk = new CCheckBoxMenuItem("Firemaking");
-		menu.add(firemakingSk);
-		
-		CCheckBoxMenuItem woodcuttingSk = new CCheckBoxMenuItem("Woodcutting");
-		menu.add(woodcuttingSk);
 	}
 
 	private void TitleBar() {
