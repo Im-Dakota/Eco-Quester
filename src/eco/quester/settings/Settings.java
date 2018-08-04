@@ -32,14 +32,21 @@ public class Settings {
 	public static CustomFrame frame;	//Creates a custom frame object
 	public static void main(String[] args) {
 		
+		
 		try {	//This line is especially important on mac because it allows it to look like the windows version
 			UIManager.setLookAndFeel(UIManager.getCrossPlatformLookAndFeelClassName());
 		} catch (ClassNotFoundException | InstantiationException | IllegalAccessException | UnsupportedLookAndFeelException e) {
 			e.printStackTrace();
 		}
 		
+<<<<<<< HEAD
 		//TODO 			THIS IS ONLY TEMP CODE - A REMINDER
 		Settings.playerDisplayName = "Code Not Complete#";
+=======
+		
+		if(playAudio)
+			Settings.audio.playAudio();
+>>>>>>> master
 		frame = new CustomFrame();
 		
 	}

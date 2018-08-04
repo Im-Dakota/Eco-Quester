@@ -1,18 +1,29 @@
 package eco.quester.custom_frame;
 import eco.quester.custom_objects.*;
+import eco.quester.listeners.ButtonActionListener;
+import eco.quester.menus.Difficulty;
+import eco.quester.menus.ExpRewards;
+import eco.quester.menus.Length;
 import eco.quester.settings.*;
+<<<<<<< HEAD
 import eco.quester.tabs.LeftListPanel;
 import eco.quester.tabs.QuestsByExpRewardsPane;
 import eco.quester.tabs.QuestsByStatisticsPane;
+=======
+>>>>>>> master
 import eco.quester.utils.*;
 
+import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Rectangle;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseMotionAdapter;
 
+import javax.swing.BorderFactory;
+import javax.swing.Box;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.border.LineBorder;
 
@@ -22,9 +33,10 @@ public class CustomFrame extends JFrame {
 	public static JPanel loginPanel;
 	private static int posX, posY;
 	
-	public static JPanel personalStatisticsView;
-	public static JPanel questsByExpRewardsView;
-	public static JPanel questsByStatisticsView;
+	private JPanel centerPanel;
+	public static JPanel mainPanel;
+	public static JLabel statusBar;
+	public static CMenuBar menuBar;
 	
 	public CustomFrame() {
 		
@@ -42,8 +54,8 @@ public class CustomFrame extends JFrame {
 		getRootPane().setBorder(new LineBorder(Color.BLACK));
 		getContentPane().setBackground(Settings.BACKGROUND_COLOR);	//Up to here is some standards on the frame
 		
-		addLeftListSelectionOptions();
-		initSelectedOptionPanels();
+		addJMenuBar();
+		addStatusBar();
 
 		//This is at the end so the frame can appear first, then add everything, then update itself
 		//This is so people don't think the program hangs up
@@ -52,30 +64,59 @@ public class CustomFrame extends JFrame {
 		
 	}
 
-	private void TitleBar() {
-		CustomFrameTitleBar frameBar = new CustomFrameTitleBar();	//Creates a returns a custom title bar object
-		add(frameBar);
+	private void addStatusBar() {
+		statusBar = new JLabel("Ready");
+		statusBar.setForeground(Settings.PRIMARY_COLOR);
+		statusBar.setBorder(BorderFactory.createEtchedBorder(Settings.BACKGROUND_COLOR, Color.WHITE));
+		
+		centerPanel.add(statusBar, BorderLayout.SOUTH);
 	}
 	
+<<<<<<< HEAD
 	private void initSelectedOptionPanels() {		
 		questsByExpRewardsView = new QuestsByExpRewardsPane();
 //		questsByExpRewardsView.setBackground(Color.RED);
 		questsByExpRewardsView.setBounds(140, 25, Settings.FRAME_WIDTH - 140, Settings.FRAME_HEIGHT - 25);
 		questsByExpRewardsView.setVisible(false);
 		add(questsByExpRewardsView);
+=======
+	private void addJMenuBar() {
+		menuBar = new CMenuBar();
 		
-		questsByStatisticsView = new QuestsByStatisticsPane();
-//		questsByStatisticsView.setBackground(Color.MAGENTA);
-		questsByStatisticsView.setBounds(140, 25, Settings.FRAME_WIDTH - 140, Settings.FRAME_HEIGHT - 25);
-		questsByStatisticsView.setVisible(false);
-		add(questsByStatisticsView);
+//		FreeSkills.initFreeSkills(menuBar);
+//		MemberSkills.initMemberSkills(menuBar);
+		Difficulty.initQuestDifficulties(menuBar);
+		Length.initQuestLength(menuBar);
+		ExpRewards.initQuestRewards(menuBar);
+		
+		menuBar.add(Box.createHorizontalGlue());
+		CButton applyFilter = new CButton("Apply Filter");
+		applyFilter.addActionListener(new ButtonActionListener());
+		menuBar.add(applyFilter);
+		
+>>>>>>> master
+		
+		centerPanel.add(menuBar, BorderLayout.NORTH);
 	}
-	
-	private void addLeftListSelectionOptions() {
-		JPanel leftListPanel = new LeftListPanel();
-		leftListPanel.setBounds(0, 25, 140, Settings.FRAME_HEIGHT - 25);
+
+	private void TitleBar() {
+		CustomFrameTitleBar frameBar = new CustomFrameTitleBar();	//Creates a returns a custom title bar object
+		add(frameBar);
 		
+<<<<<<< HEAD
 		add(leftListPanel);
+=======
+		centerPanel = new JPanel();
+		centerPanel.setBounds(0, 25, Settings.FRAME_WIDTH, Settings.FRAME_HEIGHT - 25);
+		centerPanel.setBackground(Settings.BACKGROUND_COLOR);
+		centerPanel.setLayout(new BorderLayout());
+		add(centerPanel);
+		
+		mainPanel = new JPanel();
+		mainPanel.setLayout(null); //Might change
+		mainPanel.setBackground(Settings.BACKGROUND_COLOR);
+		centerPanel.add(mainPanel, BorderLayout.CENTER);
+>>>>>>> master
 	}
 
 	
