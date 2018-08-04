@@ -4,7 +4,6 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import eco.quester.custom_objects.CCheckBoxMenuItem;
-import eco.quester.menus.Difficulty;
 import eco.quester.menus.Length;
 
 public class QuestLengthActionListener implements ActionListener {
