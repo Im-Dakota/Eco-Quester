@@ -45,6 +45,7 @@ public class Length {
 		lengthLong.addActionListener(new QuestLengthActionListener());
 		questLengthMenu.add(lengthLong);
 		
+		menuBar.add(questLengthMenu);
 //		CCheckBoxMenuItem shortLength = new CCheckBoxMenuItem("Short");
 //		questLengthMenu.add(shortLength);
 //		
@@ -53,8 +54,7 @@ public class Length {
 //		
 //		CCheckBoxMenuItem longLength = new CCheckBoxMenuItem("Long");
 //		questLengthMenu.add(longLength);
-		
-		menuBar.add(questLengthMenu);
+
 		
 	}
 

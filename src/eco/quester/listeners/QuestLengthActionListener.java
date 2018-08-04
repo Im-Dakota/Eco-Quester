@@ -33,9 +33,9 @@ public class QuestLengthActionListener implements ActionListener {
 	
 	public void applyAction(CCheckBoxMenuItem item) {
 		if(item.isSelected())
-			Difficulty.difficultyMap.put(item.getText().toLowerCase().replaceAll(" ", ""), true);
+			Length.lengthMap.put(item.getText().toLowerCase().replaceAll(" ", ""), true);
 		else
-			Difficulty.difficultyMap.put(item.getText().toLowerCase().replaceAll(" ", ""), false);
+			Length.lengthMap.put(item.getText().toLowerCase().replaceAll(" ", ""), false);
 	}
 	
 	
