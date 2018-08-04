@@ -14,6 +14,7 @@ public class ButtonActionListener implements ActionListener {
 		case "Apply Filter":
 			CustomFrame.statusBar.setText("Applying Filter...");
 			Filters.applyDifficultyFilter();
+			Filters.applyLengthFilter();
 			break;
 		
 		}

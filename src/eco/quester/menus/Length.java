@@ -10,11 +10,11 @@ import eco.quester.listeners.QuestLengthActionListener;
 public class Length {
 	
 	public static CCheckBoxMenuItem lengthShort;
-	private static boolean shortLength = false;
+	public static boolean shortLength = false;
 	public static CCheckBoxMenuItem lengthMedium;
-	private static boolean mediumLength = false;
+	public static boolean mediumLength = false;
 	public static CCheckBoxMenuItem lengthLong;
-	private static boolean longLength = false;
+	public static boolean longLength = false;
 	
 	public static HashMap<String, Boolean> lengthMap;
 	

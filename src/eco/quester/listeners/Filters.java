@@ -19,15 +19,6 @@ public class Filters {
 		System.out.println(activeFiltersDifficulty);
 		
 		
-		String activeFiltersLength = "[";
-		for(Map.Entry<String, Boolean> entry : Length.lengthMap.entrySet())
-			if(entry.getValue() == true)
-				activeFiltersLength += entry.getKey() + ", ";
-		if(!activeFiltersLength.equals("["))
-			activeFiltersLength = activeFiltersLength.substring(0, activeFiltersLength.length() - 2);
-		activeFiltersLength += "]";
-		System.out.println(activeFiltersLength);
-		
 //		for(String key : Difficulty.difficultyMap.keySet())		//Prints out keys
 //			System.out.println(key);
 
@@ -36,6 +27,17 @@ public class Filters {
 
 //		for(Map.Entry<String, Boolean> entry : Difficulty.difficultyMap.entrySet())		//Prints out keys and values
 //			System.out.println(entry.getKey() + " = " + entry.getValue());
+	}
+	
+	public static void applyLengthFilter() {
+		String activeFiltersLength = "[";
+		for(Map.Entry<String, Boolean> entry : Length.lengthMap.entrySet())
+			if(entry.getValue() == true)
+				activeFiltersLength += entry.getKey() + ", ";
+		if(!activeFiltersLength.equals("["))
+			activeFiltersLength = activeFiltersLength.substring(0, activeFiltersLength.length() - 2);
+		activeFiltersLength += "]";
+		System.out.println(activeFiltersLength);
 	}
 
 }
