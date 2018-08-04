@@ -4,7 +4,6 @@ import java.awt.Color;
 
 import javax.swing.JMenu;
 
-import eco.quester.menus.FreeSkills;
 import eco.quester.settings.Settings;
 
 @SuppressWarnings("serial")

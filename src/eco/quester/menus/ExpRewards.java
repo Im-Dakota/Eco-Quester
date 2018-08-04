@@ -3,7 +3,6 @@ package eco.quester.menus;
 import eco.quester.custom_objects.CCheckBoxMenuItem;
 import eco.quester.custom_objects.CMenu;
 import eco.quester.custom_objects.CMenuBar;
-import eco.quester.settings.Settings;
 
 public class ExpRewards {
 	

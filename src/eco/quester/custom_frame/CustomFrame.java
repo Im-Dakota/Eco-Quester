@@ -3,9 +3,7 @@ import eco.quester.custom_objects.*;
 import eco.quester.listeners.ButtonActionListener;
 import eco.quester.menus.Difficulty;
 import eco.quester.menus.ExpRewards;
-import eco.quester.menus.FreeSkills;
 import eco.quester.menus.Length;
-import eco.quester.menus.MemberSkills;
 import eco.quester.settings.*;
 import eco.quester.utils.*;
 

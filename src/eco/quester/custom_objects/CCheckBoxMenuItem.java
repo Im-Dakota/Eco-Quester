@@ -5,7 +5,6 @@ import java.awt.Color;
 import java.awt.event.MouseEvent;
 
 import javax.swing.JCheckBoxMenuItem;
-import javax.swing.JMenuItem;
 
 import eco.quester.settings.Settings;
 
