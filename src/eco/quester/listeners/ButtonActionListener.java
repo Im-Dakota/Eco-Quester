@@ -15,6 +15,9 @@ public class ButtonActionListener implements ActionListener {
 			CustomFrame.statusBar.setText("Applying Filter...");
 			Filters.applyDifficultyFilter();
 			Filters.applyLengthFilter();
+//			Filters.applyQuestRewardExpFilter();
+			Filters.applyCombatExpRewardFilter();
+			Filters.applyNonCombatExpFilter();
 			break;
 		
 		}

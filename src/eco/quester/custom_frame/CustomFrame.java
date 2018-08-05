@@ -72,7 +72,9 @@ public class CustomFrame extends JFrame {
 //		MemberSkills.initMemberSkills(menuBar);
 		Difficulty.initQuestDifficulties(menuBar);
 		Length.initQuestLength(menuBar);
-		ExpRewards.initQuestRewards(menuBar);
+		ExpRewards.initCombatXp(menuBar);
+		ExpRewards.initNonCombatXp(menuBar);
+//		ExpRewards.initQuestExpRewards(menuBar);
 		
 		menuBar.add(Box.createHorizontalGlue());
 		CButton applyFilter = new CButton("Apply Filter");
